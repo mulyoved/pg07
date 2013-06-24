@@ -1,14 +1,16 @@
 <div> <!-- class="hero-unit" this what add the extra space at the top of the page -->
 	<div ng-show="isLoggedin">
 		<!-- <div ng-include="'views/includes/toolbar.html'"></div> -->
-		<div toptoolbar="" brand="{{brand}}" username="{{userName}}">
+		<div toptoolbar 
+			brand="{{brand}}" 
+			username="{{userName}}">
 		</div>
 
 		<!-- <div ng-include="'views/includes/lernist_panel.html'"></div> -->
-		<div ng-controller="EventsController" class="row">
-			<div infinite-scroll="eventStorage.loadNextPage()" infinite-scroll-disabled="eventStorage.busy" infinite-scroll-distance="1">
+		<div ng-controller='EventsController' class="row">
+			<div infinite-scroll='eventStorage.loadNextPage()' infinite-scroll-disabled='eventStorage.busy' infinite-scroll-distance='1'>
 				<div ng-include="'views/includes/event_panel.html'"></div>
-				<div ng-show="busy">Loading data...</div>
+				<div ng-show='busy'>Loading data...</div>
 			</div>
 		</div>
 
