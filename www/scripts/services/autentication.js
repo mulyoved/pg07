@@ -23,9 +23,24 @@ angular.module('yo6App')
 				FB.init({
 					appId: $rootScope.config.facebookAppId,
 					status: true,
-					cookie: true,
-					xfbml: true
+					//cookie: true,
+					//xfbml: true,
+					useCachedDialogs: false
 				});
+
+				console.log('window.fbAsyncInit a1');
+				FB.Event.subscribe('auth.statusChange', function (response) {
+					console.log('window.fbAsyncInit d1 ' + response.status);
+					$rootScope.$broadcast('fb_statusChange', {'status':response.status});
+				});
+
+				FB.getLoginStatus(function (response) {
+					console.log('window.fbAsyncInit a2 ' + response.status);
+					$rootScope.$broadcast('fb_statusChange', {'status':response.status});
+				}, true);
+				
+				console.log('window.fbAsyncInit a3');
+
 			}
 			else {
 				console.log('window.fbAsyncInit c1');
