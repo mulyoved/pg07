@@ -16,6 +16,11 @@
         Final
     </author>
 
+    <gap:plugin name="FacebookConnect">
+        <param name="APP_ID" value="193911810758167" />
+        <param name="APP_NAME" value="Test001" />
+    </gap:plugin>    
+
     <!--
         Enable individual API permissions here.
         The "device" permission is required for the 'deviceready' event.
