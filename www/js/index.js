@@ -37,7 +37,7 @@ var app = {
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
-        console.log('Received Event version 2.0.1');
+        console.log('Received Event version 2.0.2');
 
         var parentElement = document.getElementById(id);
         var listeningElement = parentElement.querySelector('.listening');
