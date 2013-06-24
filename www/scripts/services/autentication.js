@@ -2,6 +2,8 @@
 
 angular.module('yo6App')
 .factory('autentication', function (Facebook, $rootScope, $http) {
+
+	console.log('autentication factory');
 	$rootScope.isLoggedin = false;
 	//var info;
 	var userID;

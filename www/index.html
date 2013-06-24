@@ -27,7 +27,7 @@
 	</head>
 
 	<script type="text/javascript">
-		console.log('Index.html 2.0.8');
+		console.log('Index.html 2.0.9');
 	</script>
 
 	<body ng-app="yo6App">
@@ -54,6 +54,16 @@
 		<script src="components/angular-sanitize/angular-sanitize.js"></script>
 		<script type="text/javascript" src="components/ngInfiniteScroll/ng-infinite-scroll.js"></script>
 
+        <script type="text/javascript" src="phonegap.js"></script>
+		<script src="scripts/misc/cdv-plugin-fb-connect.js"></script>
+		<script src="scripts/misc/facebook-js-sdk.js"></script>		
+		<script type="text/javascript" src="scripts/misc/phonegap.js"></script>
+
+		<script type="text/javascript">
+			console.log('Call phonegapapp.initialize');
+			phonegapapp.initialize();
+		</script>
+
 		<!-- build:js scripts/scripts.js -->
 		<script src="scripts/app.js"></script>
 		<script src="scripts/controllers/main.js"></script>
@@ -64,13 +74,11 @@
 		<script src="scripts/services/autentication.js"></script>
 		<script src="scripts/services/eventsFilterParams.js"></script>
 		<!-- endbuild -->
-		<script src="scripts/misc/cdv-plugin-fb-connect.js"></script>
-		<script src="scripts/misc/facebook-js-sdk.js"></script>		
-		<script type="text/javascript" src="scripts/misc/phonegap.js"></script>
 
 		<script type="text/javascript">
-			phonegapapp.initialize();
+			console.log('Completed load all sccripts');
 		</script>
+
         </script>
 	</body>
 </html>
