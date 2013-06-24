@@ -45,6 +45,8 @@ app.run(function ($rootScope, autentication) {
 			facebookAppId: '193911810758167'
 		};
 	}
+	//Additional configuration
+	$rootScope.config.facebook_pg_login = true;
 
 	//I don't understand why the toolbar.html template cannot access config.brand
 	$rootScope.brand = $rootScope.config.brand;

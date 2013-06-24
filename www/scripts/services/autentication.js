@@ -14,9 +14,9 @@ angular.module('yo6App')
 		},
 
 		init: function() {
-			console.log('window.fbAsyncInit c1');
-			window.fbAsyncInit = function () {
-				console.log('window.fbAsyncInit %s', $rootScope.config.facebookAppId);
+
+			if ($rootScope.config.facebook_pg_login) {
+				console.log('Facebook, phonegap init');
 
 				FB.init({
 					appId: $rootScope.config.facebookAppId,
@@ -24,32 +24,45 @@ angular.module('yo6App')
 					cookie: true,
 					xfbml: true
 				});
+			}
+			else {
+				console.log('window.fbAsyncInit c1');
+				window.fbAsyncInit = function () {
+					console.log('window.fbAsyncInit %s', $rootScope.config.facebookAppId);
 
-				console.log('window.fbAsyncInit a1');
-				FB.getLoginStatus(function (response) {
-					console.log('window.fbAsyncInit a2 ' + response.status);
-					$rootScope.$broadcast('fb_statusChange', {'status':response.status});
-				}, true);
-				console.log('window.fbAsyncInit a3');
-			};
+					FB.init({
+						appId: $rootScope.config.facebookAppId,
+						status: true,
+						cookie: true,
+						xfbml: true
+					});
 
-			console.log('window.fbAsyncInit c2');
-			(function (d) {
-				console.log('window.fbAsyncInit b1');
-				var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
-				if (d.getElementById(id)) {
-					return;
-				}
-				console.log('window.fbAsyncInit b2');
-				js = d.createElement('script');
-				js.id = id;
-				js.async = true;
-				js.src = '//connect.facebook.net/en_US/all.js';
-				console.log('window.fbAsyncInit b3');
-				ref.parentNode.insertBefore(js, ref);
-				console.log('window.fbAsyncInit b4');
-			}(document));
-			console.log('window.fbAsyncInit c3');
+					console.log('window.fbAsyncInit a1');
+					FB.getLoginStatus(function (response) {
+						console.log('window.fbAsyncInit a2 ' + response.status);
+						$rootScope.$broadcast('fb_statusChange', {'status':response.status});
+					}, true);
+					console.log('window.fbAsyncInit a3');
+				};
+
+				console.log('window.fbAsyncInit c2');
+				(function (d) {
+					console.log('window.fbAsyncInit b1');
+					var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+					if (d.getElementById(id)) {
+						return;
+					}
+					console.log('window.fbAsyncInit b2');
+					js = d.createElement('script');
+					js.id = id;
+					js.async = true;
+					js.src = '//connect.facebook.net/en_US/all.js';
+					console.log('window.fbAsyncInit b3');
+					ref.parentNode.insertBefore(js, ref);
+					console.log('window.fbAsyncInit b4');
+				}(document));
+				console.log('window.fbAsyncInit c3');
+			}
 		},
 
 		updateSession: function () {
